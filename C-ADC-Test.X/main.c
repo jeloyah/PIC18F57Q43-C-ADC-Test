@@ -7,9 +7,6 @@
 
 void main(void) {
     
-    /* Store ADC result */
-    /* float Vadc=0; */
-    
     /* System Clock Initialization */
 	CLOCK_Initialize();
     
@@ -41,20 +38,18 @@ void main(void) {
      ADC_Start();
         
      /* Wait for Go = 0 */
-	 while (ADC_conversionComplete)
+	/* while (ADC_conversionComplete) */
+     while (ADCON0bits.GO != 1)
+     
          ;
 
-     /* Write ADC result (low) to RB7:RB6 */
+     /* Write ADC result (low) to RD7:RD6 */
 	 LATD = ADRESL;
 
 	 /* Write ADC result (high) to RC7:RC0 */
 	 LATC = ADRESH;
-    
-     /* Convert to analog voltage */
-     //Vadc = ADRES * (float)19.6E-03;
-     
+         
      } /* while */
-        
-    
+            
     return;
 } /* main*/
