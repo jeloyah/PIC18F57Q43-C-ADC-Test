@@ -43,11 +43,11 @@ void main(void) {
      
          ;
 
-     /* Write ADC result (low) to RD7:RD6 */
-	 LATD = ADRESL;
+     /* Write ADC result (low) to RC7:RC6 */
+	 LATC = ADRESL;
 
-	 /* Write ADC result (high) to RC7:RC0 */
-	 LATC = ADRESH;
+	 /* Write ADC result (high) to RD7:RD0 */
+	 LATD = ADRESH;
          
      } /* while */
             
